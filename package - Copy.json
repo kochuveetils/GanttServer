@@ -1,0 +1,37 @@
+{
+  "name": "ganttserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "bcrypt-nodejs": "0.0.3",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "csv-parser": "^2.3.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.3.0",
+    "log4js": "^6.3.0",
+    "mongoose": "^5.2.17",
+    "mongoose-currency": "^0.2.0",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.11",
+    "nodemon": "^2.0.7",
+    "oracledb": "^4.2.0",
+    "passport": "^0.4.0",
+    "passport-facebook-token": "^4.0.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "session-file-store": "^1.2.0",
+    "util": "^0.12.3",
+    "util.promisify": "^1.0.1"
+  }
+}
