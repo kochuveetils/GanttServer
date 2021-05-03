@@ -25,6 +25,7 @@ const logger = require('./configurelogger').logger(MODULE);
 logger.info("***Mounting Oracle DB Router***");
 // Oracle Routers below
 var ganttRouter = require('./routes/ganttRouterOra');
+var dutyRouter = require('./routes/dutyRouterOra');
 
 var app = express();
 
@@ -58,6 +59,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/gantt', ganttRouter);
+app.use('/duty', dutyRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
