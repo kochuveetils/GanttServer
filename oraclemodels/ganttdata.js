@@ -78,7 +78,8 @@ exports.run = async (querystring, cb) => {
         logger.debug("Query innerqueryclause Clause in Gantt" + innerqueryclause);
 
         if (contractqueryclause === '') {
-            contractqueryclause = ` and contract_cd = 'PA75'`;
+            contractqueryclause = ` `;
+            // contractqueryclause = ` and contract_cd = 'PA75'`;
         }
 
         if (enddateclause === '') {
@@ -328,6 +329,7 @@ loop
         to_char(BUFFEROVER) "bufferover",
         to_char(BUFFERUNDER) "bufferunder",
         LEGAL "legal",
+        case when trunc(runtime)=trunc(signonbne) then '*' else null end "currdate", 
         --rundate "runenddate",
         --to_CHAR(to_date(rundate,'DDMONRRRR')-`+ legalitywindow + `,'DDMONRRRR') "runstrdate",
         TO_CHAR(to_date(rundate,'DDMONRRRR'),'RRRR-MM-DD') "runenddate",
@@ -341,7 +343,7 @@ loop
    where exists (select 1 from VA_NBFC_FDP_GANTT_V y 
                  where y.staff = x.staff 
                   and signonbne >=to_date(rundate,'DDMONRRRR')-`+ legalitywindow +
-            ` AND RUNSEQNUM = (SELECT MAX(RUNSEQNUM) FROM VA_NBFC_FDP_GANTT_V )`
+            ` AND RUNSEQNUM = x.RUNSEQNUM`
             + innerqueryclause + strdateclause + enddateclause + contractqueryclause
             + `) ` +
             ` and signonbne >=to_date(rundate,'DDMONRRRR')-` + legalitywindow +
