@@ -338,7 +338,8 @@ loop
         --to_date(TO_DATE(rundate,'DDMONRRRR'),'RRRR-MM-DD')-`+ legalitywindow + ` "runstrdate",
         duration "duration",
         runtime "runtime",
-        runseqnum "runseqnum"
+        runseqnum "runseqnum",
+        ruleapp "ruleapp"
    FROM VA_NBFC_FDP_GANTT_V x   
    where exists (select 1 from VA_NBFC_FDP_GANTT_V y 
                  where y.staff = x.staff 
